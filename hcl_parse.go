@@ -22,8 +22,8 @@ func ParseHclBlocks(s string) (ast.File, error) {
 	return *parse, nil
 }
 
-//ReadBlockComments takes an input of type ast.File and returns data about comments in the present hcl blocks 
-func ReadBlockComments(a ast.File) ([]CommentData, error) {
+//ReadBlockComments takes an input of type ast.File and returns data about comments in the present hcl blocks
+func ReadBlockComments(a ast.File) []CommentData {
 	var comms []CommentData
 	for _, v := range a.Comments {
 		var c CommentData
@@ -34,8 +34,7 @@ func ReadBlockComments(a ast.File) ([]CommentData, error) {
 			comms = append(comms, c)
 		}
 	}
-	return comms, nil
+	return comms
 }
 func ParseVarBlocks()     {}
-func ParseCommentBlocks() {}
 func ParseVarDefsBlocks() {}
